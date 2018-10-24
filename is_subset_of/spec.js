@@ -55,11 +55,21 @@ describe("isSubsetOf", () => {
     before("Exercise", () => {
       result.noInput = pancakes.isSubsetOf();
       result.pancakesAndMuffins = pancakes.isSubsetOf(pancakesAndMuffins);
+      result.noMuffins = pancakes.isSubsetOf(muffins);
     })
 
     it("should return a boolean", () => {
       // Assert
       expect(result.noInput).to.be.a("boolean");
     });
+
+    it("should return false if context array is not a subset", () => {
+      expect(result.noMuffins).to.be.false;
+    });
+
+    it("should return true if context array is actually a subset", () => {
+      expect(result.pancakesAndMuffins).to.be.true;
+    });
+
   });
 });
