@@ -32,7 +32,10 @@ describe("isSubsetOf", () => {
   });
 
   it("should exist in any array", () => {
-    let pancakes = ["blueberry", "strawberry", "radberry"]
+    // Setup
+    let pancakes = ["blueberry", "strawberry", "radberry"];
+
+    // Assert
     expect(pancakes.isSubsetOf).to.exist;
     expect(pancakes.isSubsetOf).to.be.a("function")
   });
@@ -50,11 +53,13 @@ describe("isSubsetOf", () => {
     });
 
     before("Exercise", () => {
+      result.noInput = pancakes.isSubsetOf();
       result.pancakesAndMuffins = pancakes.isSubsetOf(pancakesAndMuffins);
     })
 
     it("should return a boolean", () => {
-      expect(result.pancakesAndMuffins).to.be.a("boolean");
+      // Assert
+      expect(result.noInput).to.be.a("boolean");
     });
   });
 });

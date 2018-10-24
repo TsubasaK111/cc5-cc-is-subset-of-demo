@@ -1,1 +1,5 @@
-Array.prototype.isSubsetOf = function () {};
+Array.prototype.isSubsetOf = function (inputArray) {
+  if (inputArray === undefined || !Array.isArray(inputArray)) {
+    return false;
+  }
+};
