@@ -30,4 +30,10 @@ describe("isSubsetOf", ()=> {
   it("should be a function", () => {
     expect(Array.prototype.isSubsetOf).to.be.a("function");
   });
+
+  it("should exist in any array", () => {
+    let pancakes = ["blueberry", "strawberry", "radberry"]
+    expect(pancakes.isSubsetOf).to.exist;
+    expect(pancakes.isSubsetOf).to.be.a("function")
+  });
 })
