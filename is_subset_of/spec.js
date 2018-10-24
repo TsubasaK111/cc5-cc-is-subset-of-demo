@@ -22,7 +22,7 @@
 const { expect } = require('chai');
 require('./index.js');
 
-describe("isSubsetOf", ()=> {
+describe("isSubsetOf", () => {
   it("should exist", () => {
     expect(Array.prototype.isSubsetOf).to.exist;
   });
@@ -36,4 +36,25 @@ describe("isSubsetOf", ()=> {
     expect(pancakes.isSubsetOf).to.exist;
     expect(pancakes.isSubsetOf).to.be.a("function")
   });
-})
+
+  context("when invoked with an array of strings", () => {
+    let pancakes;
+    let muffins;
+    let pancakesAndMuffins;
+    let result = {};
+
+    before("Setup", () => {
+      pancakes = ["strawberry pancakes", "strawberry pancakes", "radberry pancakes"];
+      muffins = ["banana muffin", "blueberry muffin"];
+      pancakesAndMuffins = [...pancakes, ...muffins];
+    });
+
+    before("Exercise", () => {
+      result.pancakesAndMuffins = pancakes.isSubsetOf(pancakesAndMuffins);
+    })
+
+    it("should return a boolean", () => {
+      expect(result.pancakesAndMuffins).to.be.a("boolean");
+    });
+  });
+});
