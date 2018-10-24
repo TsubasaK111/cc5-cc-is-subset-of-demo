@@ -7,9 +7,9 @@
     - Method work for arrays that contain objects and/or arrays as elements as well
     - Disregard duplicates
 
-    ['pop','crackle'].isSubsetOf(['snap','crackle','pop']); //true  
+    ['pop','crackle'].isSubsetOf(['snap','pop', 'crackle']); //true  
     [null].isSubsetOf([1, null]) // true
-    [[1], [2, [3, 4]]].isSubsetOf([[2, [3, 4]], [1]]); // true
+    [[1], [2, [3, 4]]].isSubsetOf([[[4, 3], 2], [1]]); // true
     [[1], [2, [3, 4]]].isSubsetOf([[1], [2], [3, 4]])); // false
 
     const objectSub = [{ "key1": 1 }, { "key2": { "key3": 3, "key4": 4 }}];
@@ -19,27 +19,3 @@
     See http://en.wikipedia.org/wiki/Subset for more on the definition of a
     subset.
   */
-
-/* eslint-disable no-extend-native */
-Array.prototype.isSubsetOf = function (inputArray = undefined) {
-  // console.log(`inputArray:`);
-  // console.log(JSON.stringify(inputArray));
-  // console.log(`this:`);
-  // console.log(JSON.stringify(this));
-
-  if (inputArray === undefined || !Array.isArray(inputArray)) {
-    // console.log(`result:`);
-    // console.log(false);
-    return false;
-  }
-
-  // checks for EVERY item in contextArray if test is `true`. Returns a boolean.
-  let isSubset = this.every(contextItem => {
-    // the test: checks if this item in the contextArray is INCLUDED in the inputArray. Returns a boolean
-    return inputArray.includes(contextItem);
-  });
-
-  // console.log(`result:`);
-  // console.log(isSubset);
-  return isSubset;
-};
