@@ -1,5 +1,4 @@
 /*
-    Write an array method called isSubsetOf.
 
     isSubsetOf should take an input array and return whether the context array
     is a subset of the input array.
@@ -26,5 +25,9 @@ require('./index.js');
 describe("isSubsetOf", ()=> {
   it("should exist", () => {
     expect(Array.prototype.isSubsetOf).to.exist;
-  })
+  });
+
+  it("should be a function", () => {
+    expect(Array.prototype.isSubsetOf).to.be.a("function");
+  });
 })
